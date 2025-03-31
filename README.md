@@ -1,6 +1,6 @@
 <div align="center">
 
-# [Emotion Analyzer](https://ThatSINEWAVE.github.io/Emotion-Analyzer)
+# [Emotion Analyzer](https://thatsinewave.github.io/Emotion-Analyzer)
 
 A web application that detects faces in real-time using your device's camera and analyzes the emotional expressions of detected faces. It utilizes the powerful `face-api.js` library to perform face detection and emotion recognition.
 
