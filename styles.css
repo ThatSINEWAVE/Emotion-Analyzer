@@ -1,0 +1,425 @@
+/* Modern UI styles for Face Emotion Analyzer */
+:root {
+	--primary: #4361ee;
+	--primary-light: #4895ef;
+	--primary-dark: #3a0ca3;
+	--secondary: #4cc9f0;
+	--success: #2ecc71;
+	--warning: #f39c12;
+	--danger: #e74c3c;
+	--light: #f8f9fa;
+	--dark: #212529;
+	--gray: #6c757d;
+	--gray-light: #e9ecef;
+	--border-radius: 12px;
+	--shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+	--shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+	--transition: all 0.3s ease;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+	background-color: var(--light);
+	color: var(--dark);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	line-height: 1.6;
+}
+
+header {
+	width: 100%;
+	background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+	color: white;
+	text-align: center;
+	padding: 1.5rem 0;
+	box-shadow: var(--shadow-md);
+	position: relative;
+	overflow: hidden;
+}
+
+header::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1));
+	pointer-events: none;
+}
+
+h1 {
+	font-size: 2.2rem;
+	font-weight: 600;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+	width: 92%;
+	max-width: 1200px;
+	margin: 2rem auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.status {
+	text-align: center;
+	margin-bottom: 1.5rem;
+	min-height: 24px;
+	font-weight: 500;
+	color: var(--primary);
+	background-color: rgba(67, 97, 238, 0.1);
+	padding: 0.75rem 1.5rem;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-sm);
+	transition: var(--transition);
+}
+
+.controls {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+	width: 100%;
+}
+
+button {
+	padding: 0.75rem 1.75rem;
+	border: none;
+	border-radius: var(--border-radius);
+	background-color: var(--primary);
+	color: white;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: var(--transition);
+	box-shadow: var(--shadow-sm);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+button::before {
+	content: '';
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#startButton::before {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z' /%3E%3C/svg%3E");
+}
+
+#stopButton::before {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 12a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z' /%3E%3C/svg%3E");
+}
+
+button:hover {
+	background-color: var(--primary-dark);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-md);
+}
+
+#startButton {
+	background-color: var(--primary);
+}
+
+#stopButton {
+	background-color: var(--danger);
+}
+
+button:disabled {
+	background-color: var(--gray);
+	cursor: not-allowed;
+	transform: none;
+	box-shadow: none;
+	opacity: 0.7;
+}
+
+.video-container {
+	width: 100%;
+	position: relative;
+	margin-bottom: 2.5rem;
+	border-radius: var(--border-radius);
+	overflow: hidden;
+	box-shadow: var(--shadow-lg);
+	background-color: #000;
+	max-height: 100vh;
+}
+
+.video-container::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border: 2px solid rgba(255, 255, 255, 0.1);
+	border-radius: var(--border-radius);
+	box-sizing: border-box;
+}
+
+#video {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+}
+
+#canvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.emotion-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 1rem;
+	width: 100%;
+	margin-top: 1.5rem;
+}
+
+.emotion-card {
+	background: white;
+	padding: 1.25rem;
+	border-radius: var(--border-radius);
+	box-shadow: var(--shadow-md);
+	text-align: center;
+	transition: var(--transition);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 1px solid var(--gray-light);
+}
+
+.emotion-card:hover {
+	transform: translateY(-5px);
+	box-shadow: var(--shadow-lg);
+}
+
+.emotion-card h3 {
+	margin-bottom: 0.75rem;
+	color: var(--primary);
+	font-weight: 600;
+	position: relative;
+}
+
+.emotion-card h3::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 30px;
+	height: 2px;
+	background-color: var(--primary-light);
+	border-radius: 2px;
+}
+
+.emotion-card p {
+	font-size: 1.75rem;
+	font-weight: 700;
+	color: var(--dark);
+}
+
+/* Emotion-specific colors */
+#happy-count {
+	color: #f1c40f;
+}
+
+#sad-count {
+	color: #3498db;
+}
+
+#angry-count {
+	color: #e74c3c;
+}
+
+#surprised-count {
+	color: #9b59b6;
+}
+
+#fearful-count {
+	color: #e67e22;
+}
+
+#disgusted-count {
+	color: #27ae60;
+}
+
+#neutral-count {
+	color: #7f8c8d;
+}
+
+footer {
+	margin-top: auto;
+	width: 100%;
+	background-color: var(--dark);
+	color: white;
+	text-align: center;
+	padding: 1.5rem 0;
+	font-size: 0.9rem;
+}
+
+.loading-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.85);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	color: white;
+	backdrop-filter: blur(5px);
+}
+
+.loading-overlay h2 {
+	margin: 1rem 0;
+	font-weight: 500;
+}
+
+.spinner {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.spinner::before,
+.spinner::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+}
+
+.spinner::before {
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+	animation: spin 0.8s linear infinite;
+}
+
+.spinner::after {
+	width: 85%;
+	height: 85%;
+	background-color: rgba(0, 0, 0, 0.85);
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.face-box {
+	position: absolute;
+	border: 3px solid var(--success);
+	border-radius: 4px;
+	padding: 0;
+	box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+}
+
+.emotion-label {
+	position: absolute;
+	background: linear-gradient(90deg, var(--primary), var(--primary-light));
+	color: white;
+	padding: 6px 10px;
+	border-radius: 6px;
+	font-size: 14px;
+	min-width: 120px;
+	text-align: center;
+	font-weight: 500;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+	.container {
+		width: 95%;
+	}
+
+	h1 {
+		font-size: 1.8rem;
+	}
+
+	.controls {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.controls button {
+		width: 100%;
+		max-width: 280px;
+	}
+
+	.emotion-stats {
+		grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+	}
+}
+
+/* Animations */
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.pulse {
+	animation: pulse 2s infinite;
+}
+
+/* Add animated status indicator */
+.status::before {
+	content: '';
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-right: 8px;
+	background-color: var(--success);
+	box-shadow: 0 0 10px var(--success);
+	animation: pulse 2s infinite;
+}
+
+/* Transitions for smoother UX */
+.emotion-card,
+button,
+.status {
+	will-change: transform;
+}
