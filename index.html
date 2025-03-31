@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="site-data/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="site-data/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="site-data/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="site-data/favicon-16x16.png">
+    <link rel="manifest" href="site-data/site.webmanifest">
+  </head>
+  <body>
+    <div id="loading" class="loading-overlay">
+      <div class="spinner"></div>
+      <h2>Loading face detection models...</h2>
+      <p>This may take a moment</p>
+    </div>
+    <header>
+      <h1>Emotion Analyzer</h1>
+    </header>
+    <div class="container">
+      <div class="status" id="status">Ready to detect your emotions</div>
+      <div class="controls">
+        <button id="startButton">Start Camera</button>
+        <button id="stopButton" disabled>Stop Camera</button>
+      </div>
+      <div class="video-container">
+        <video id="video" playsinline autoplay muted></video>
+        <canvas id="canvas"></canvas>
+      </div>
+      <div class="emotion-stats" id="emotionStats">
+        <!-- Emotion cards will be inserted here -->
+      </div>
+    </div>
+    <footer>
+      <p>Emotion Analyzer | Created with Face-API.js</p>
+    </footer>
+    <!-- Load face-api.js from CDN -->
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.js"></script>
+    <!-- Load our script after face-api.js -->
+    <script defer src="script.js"></script>
+  </body>
+</html>
