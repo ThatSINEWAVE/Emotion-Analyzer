@@ -70,6 +70,11 @@ Recommended browsers:
 - Mozilla Firefox (latest version)
 - Microsoft Edge (Chromium-based)
 
+## Credits
+
+- Uses [face-api.js](https://github.com/justadudewhohacks/face-api.js) by Vincent Mühler
+- UI design inspired by modern web design principles
+
 ## Known Limitations
 
 - Performance may vary depending on your device's processing power
@@ -89,15 +94,10 @@ Recommended browsers:
 - Add more detailed facial analysis (age, gender estimation)
 - Improve mobile performance and touch controls
 
+## Contributing
+
+Contributions are welcome! If you want to contribute, feel free to fork the repository, make your changes, and submit a pull request.
+
 ## License
 
-This project is open-source and available under the MIT License.
-
-## Credits
-
-- Uses [face-api.js](https://github.com/justadudewhohacks/face-api.js) by Vincent Mühler
-- UI design inspired by modern web design principles
-
----
-
-Enjoy analyzing emotions with this web application! For any questions or suggestions, please open an issue in the repository.
+This project is licensed under the GPL-3.0 License - see the [LICENSE](LICENSE) file for details.
